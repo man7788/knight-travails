@@ -12,11 +12,15 @@ const findUp = (v, h) => {
     if (h + 1 <= 7) {
       const coordY = h + 1;
       moveTo.turnRight = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnRight = null;
     }
 
     if (h - 1 >= 0) {
       const coordY = h - 1;
       moveTo.turnLeft = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnLeft = null;
     }
   } else {
     moveTo = null;
@@ -34,11 +38,15 @@ const findDown = (v, h) => {
     if (h + 1 <= 7) {
       const coordY = h + 1;
       moveTo.turnRight = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnRight = null;
     }
 
     if (h - 1 >= 0) {
       const coordY = h - 1;
       moveTo.turnLeft = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnLeft = null;
     }
   } else {
     moveTo = null;
@@ -55,12 +63,16 @@ const findRight = (v, h) => {
 
     if (v + 1 <= 7) {
       const coordX = v + 1;
-      moveTo.turnRight = findSquare(board, coordX, coordY);
+      moveTo.turnLeft = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnLeft = null;
     }
 
     if (v - 1 >= 0) {
       const coordX = v - 1;
-      moveTo.turnLeft = findSquare(board, coordX, coordY);
+      moveTo.turnRight = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnRight = null;
     }
   } else {
     moveTo = null;
@@ -78,11 +90,15 @@ const findLeft = (v, h) => {
     if (v + 1 <= 7) {
       const coordX = v + 1;
       moveTo.turnRight = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnRight = null;
     }
 
     if (v - 1 >= 0) {
       const coordX = v - 1;
       moveTo.turnLeft = findSquare(board, coordX, coordY);
+    } else {
+      moveTo.turnLeft = null;
     }
   } else {
     moveTo = null;
