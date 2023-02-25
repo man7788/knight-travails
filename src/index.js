@@ -1,13 +1,22 @@
 import './style.css';
 import { Knight } from './knight';
-import { makeTree, allMoves } from './move-tree';
+import { makeTree } from './move-tree';
 
-// const sub9 = Knight(0, 0);
-// console.log(sub9);
+const knightMoves = (start, end) => {
+  // Make two tree
+  const startTree = makeTree(start);
+  const endTree = makeTree(end);
+  // Find node closeset to end node (difference in coord value)
+  // Find way to end node moves as target
+  console.log(startTree, endTree);
+};
 
-// const diu = makeTree([0, 0]);
-// console.log(diu);
+// Outer cross = 2 steps: 1 knight, 1 end
+// Adjacent = 3 steps: 1 normal, 1 knight, 1 end
+// Diagonal = 2 steps: 1 knight, 1 end
 
-// Not all combinations found
-const on9 = allMoves();
-console.log(on9);
+knightMoves([2, 4], [6, 7]);
+// console.log(Knight([6, 7]));
+
+// const on9 = makeTree([0, 0]);
+// console.log(on9);
