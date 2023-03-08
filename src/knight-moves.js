@@ -1,5 +1,25 @@
 import { makeTree } from './move-tree';
 
+const printMoves = (moves) => {
+  const sum = moves.length - 1;
+  let path = '';
+  moves.forEach((step) => {
+    path += `[${step}]
+    `;
+  });
+
+  if (sum === 1) {
+    return console.log(
+      `=> You made it in ${sum} move!  Here's your path:
+    ${path}`
+    );
+  }
+  return console.log(
+    `=> You made it in ${sum} moves!  Here's your path:
+    ${path}`
+  );
+};
+
 const preorder = (node, end, child = [], match = []) => {
   if (node === null) {
     return;
@@ -57,11 +77,14 @@ const knightMoves = (
 
   // End of search if returned match has start as a move
   if (startMoves[0][0] === end[0] && startMoves[0][1] === end[1]) {
+    if (path.length === 0) {
+      return printMoves([start, end]);
+    }
+
     const matchTree = makeTree(startMoves[0]);
     const matchMoves = preorder(matchTree, path[0]);
-
     if (matchMoves.length === 1) {
-      return path;
+      return printMoves(path);
     }
   }
 
